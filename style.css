@@ -61,10 +61,12 @@ p {
 
 .scoreInput label:hover {
   background-color: hsl(25, 97%, 53%);
+  cursor: pointer;
 }
 
 .scoreInput input[type='radio']:checked + label {
   background-color: hsl(217, 12%, 63%);
+  color: hsl(0, 0%, 100%);
 }
 
 .button {
@@ -80,6 +82,7 @@ p {
 .button:hover {
   background-color: hsl(0, 0%, 100%);
   color: hsl(25, 97%, 53%);
+  cursor: pointer;
 }
 
 #answer {
@@ -96,6 +99,11 @@ p {
   padding: 0.2rem 2rem;
   width: max-content;
   margin: 20px auto;
+}
+
+#warningMessage {
+  display: none;
+  margin-bottom: 0;
 }
 
 .attribution {

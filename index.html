@@ -19,11 +19,21 @@
 
   <script>
     function submit() {
-      document.getElementById('question').style.display = 'none'
-      document.getElementById('answer').style.display = 'flex'
 
-      const score = document.querySelector('input[name="score"]:checked').value
-      document.getElementById('scoreString').innerHTML = `You selected ${score} out of 5`
+      const score = document.querySelector('input[name="score"]:checked')
+
+      if (score && score.value) {
+
+        document.getElementById('question').style.display = 'none'
+        document.getElementById('answer').style.display = 'flex'
+        document.getElementById('scoreString').innerHTML = `You selected ${score.value} out of 5`
+      } else {
+        document.getElementById('warningMessage').style.display = 'block'
+      }
+    }
+
+    function hideWarning() {
+      document.getElementById('warningMessage').style.display = 'none'
     }
   </script>
 
@@ -43,21 +53,25 @@
       </p>
 
       <div class="scoreInput">
-        <input class="scoreInput" type="radio" name="score" id="1" value="1">
+        <input class="scoreInput" type="radio" name="score" id="1" value="1" onclick="hideWarning()">
         <label class="scoreInputLabel" for="1">1</label>
-        <input class="scoreInput" type="radio" name="score" id="2" value="2">
+        <input class="scoreInput" type="radio" name="score" id="2" value="2" onclick="hideWarning()">
         <label class="scoreInputLabel" for="2">2</label>
-        <input class="scoreInput" type="radio" name="score" id="3" value="3">
+        <input class="scoreInput" type="radio" name="score" id="3" value="3" onclick="hideWarning()">
         <label class="scoreInputLabel" for="3">3</label>
-        <input class="scoreInput" type="radio" name="score" id="4" value="4">
+        <input class="scoreInput" type="radio" name="score" id="4" value="4" onclick="hideWarning()">
         <label class="scoreInputLabel" for="4">4</label>
-        <input class="scoreInput" type="radio" name="score" id="5" value="5">
+        <input class="scoreInput" type="radio" name="score" id="5" value="5" onclick="hideWarning()">
         <label class="scoreInputLabel" for="5">5</label>
       </div>
 
       <div class="button" onclick="submit()">
         SUBMIT
       </div>
+
+      <p id="warningMessage">
+        Please select a value to submit.
+      </p>
 
     </div>
 
