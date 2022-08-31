@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Overpass:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <script>
+    function submit() {
+      document.getElementById('question').style.display = 'none'
+      document.getElementById('answer').style.display = 'flex'
+
+      const score = document.querySelector('input[name="score"]:checked').value
+      document.getElementById('scoreString').innerHTML = `You selected ${score} out of 5`
+    }
+  </script>
+
+</head>
+
+<body>
+  <main>
+    <div class="content" id="question">
+      <img class="icon" src="./images/icon-star.svg" alt="star icon" />
+      <h1>
+        How did we do?
+      </h1>
+
+      <p>
+        Please let us know how we did with your support request. All feedback is appreciated
+        to help us improve our offering!
+      </p>
+
+      <div class="scoreInput">
+        <input class="scoreInput" type="radio" name="score" id="1" value="1">
+        <label class="scoreInputLabel" for="1">1</label>
+        <input class="scoreInput" type="radio" name="score" id="2" value="2">
+        <label class="scoreInputLabel" for="2">2</label>
+        <input class="scoreInput" type="radio" name="score" id="3" value="3">
+        <label class="scoreInputLabel" for="3">3</label>
+        <input class="scoreInput" type="radio" name="score" id="4" value="4">
+        <label class="scoreInputLabel" for="4">4</label>
+        <input class="scoreInput" type="radio" name="score" id="5" value="5">
+        <label class="scoreInputLabel" for="5">5</label>
+      </div>
+
+      <div class="button" onclick="submit()">
+        SUBMIT
+      </div>
+
+    </div>
+
+
+    <div class="content" id="answer">
+      <img src="./images/illustration-thank-you.svg" alt="thank you image" />
+      <p class="standout" id="scoreString">
+        You selected ?? out of 5
+      </p>
+      <h1>
+        Thank you!
+      </h1>
+      <p>
+        We appreciate you taking the time to give a rating. If you ever need more support,
+        don’t hesitate to get in touch!
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </footer>
+</body>
+
+</html>
